@@ -11,9 +11,14 @@ const addBtn = document.getElementById("add-task");
 const taskList = document.querySelector(".content");
 // Function Defintions
 
-function loadTasks() {
-  let tasks = Array.from(JSON.parse(localStorage.getItem(tasks)))
-}
+Storage.prototype.setObject = function (key, value) {
+  this.setItem(key, JSON.stringify(value));
+};
+
+Storage.prototype.getObject = function (key) {
+  var value = this.getItem(key);
+  return value && JSON.parse(value);
+};
 
 //createTask()
 function createTask() {
@@ -57,6 +62,12 @@ function createTask() {
 // addButton --> click,createTask()
 
 addBtn.addEventListener("click", () => {
+  const addedTask = newTaskInput.value;
+  const newObject = {
+    task: addedTask,
+    checked: false,
+  };
+
   // arrayOfTasks.pop();
 });
 // removeButton --> click, removeTask()
