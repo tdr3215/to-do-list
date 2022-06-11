@@ -11,6 +11,10 @@ const addBtn = document.getElementById("add-task");
 const taskList = document.querySelector(".content");
 // Function Defintions
 
+function loadTasks() {
+  let tasks = Array.from(JSON.parse(localStorage.getItem(tasks)))
+}
+
 //createTask()
 function createTask() {
   for (let i = 0; i < arrayOfTasks.length; i++) {
@@ -53,14 +57,6 @@ function createTask() {
 // addButton --> click,createTask()
 
 addBtn.addEventListener("click", () => {
-  const addedTask = newTaskInput.value;
-  const newObject = {
-    task: addedTask,
-    checked: false,
-  };
-
-  arrayOfTasks.push(newObject);
-  createTask();
-  arrayOfTasks.pop();
+  // arrayOfTasks.pop();
 });
 // removeButton --> click, removeTask()
