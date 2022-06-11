@@ -1,24 +1,7 @@
 console.log("hello world");
 
 // Data Structure
-const arrayOfTasks = [
-  {
-    task: "walk the dog",
-    checked: false,
-  },
-  {
-    task: "bake the chicken",
-    checked: false,
-  },
-  {
-    task: "pick up child",
-    checked: false,
-  },
-  {
-    task: "put down milk",
-    checked: false,
-  },
-];
+const arrayOfTasks = [];
 
 // JS Variables
 
@@ -63,10 +46,21 @@ function createTask() {
   }
 }
 
-createTask();
 // removeTask()
 
 // Event Listeners
 
 // addButton --> click,createTask()
+
+addBtn.addEventListener("click", () => {
+  const addedTask = newTaskInput.value;
+  const newObject = {
+    task: addedTask,
+    checked: false,
+  };
+
+  arrayOfTasks.push(newObject);
+  createTask();
+  arrayOfTasks.pop();
+});
 // removeButton --> click, removeTask()
