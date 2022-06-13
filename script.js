@@ -51,7 +51,7 @@ function createTask(task) {
   readOnlyText.className = "card-body";
   readOnlyText.innerText = task;
   appendDiv.className = "input-group-append";
-  removeButton.className = "btn btn-danger";
+  removeButton.className = "btn btn-danger remove-btn";
   removeButton.innerText = "Remove";
 
   inputGroupDiv.append(prependDiv);
@@ -61,9 +61,13 @@ function createTask(task) {
   inputTextDiv.append(checkBox);
   appendDiv.append(removeButton);
   taskList.append(inputGroupDiv);
+
+  removeButton.addEventListener('click',()=>{
+
+  })
 }
 
-// removeTask()
+function removeTask() {}
 
 // Event Listeners
 
@@ -71,17 +75,15 @@ function createTask(task) {
 
 addBtn.addEventListener("click", () => {
   addToTaskList(newTaskInput.value);
+  createTask(newTaskInput.value);
 });
-
-removeButton.addEventListener('click', ()=>{
-  
-})
 
 window.addEventListener("load", (evt) => {
   // loop over storage and create each div using the current input as the inner text for each task
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.getItem(localStorage.key(i));
     createTask(key);
+
   }
 });
 // // removeButton --> click, removeTask()
